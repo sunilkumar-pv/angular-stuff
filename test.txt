@@ -1,1 +1,6 @@
 testing done..
+
+
+git config --global user.email "sunilkumarpv90@gmail.com"
+
+git config --global user.name "sunilkumar-pv"
