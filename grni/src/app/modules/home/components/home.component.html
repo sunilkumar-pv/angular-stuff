@@ -41,7 +41,11 @@
 	  <input type="checkbox" [id]="'checkbox_' + item.id" [value]="item.id" name="checkboxName" (change)="toggleCheckbox(item.id)">
 	  <label [for]="'checkbox_' + item.id">{{ item.name }}</label>
 	  <br>  
-	</div> 
+	</div>
+ 
+
+	<ngb-pagination [collectionSize]="70" [(page)]="page" [boundaryLinks]="true"></ngb-pagination>
+
 </form>
 
  

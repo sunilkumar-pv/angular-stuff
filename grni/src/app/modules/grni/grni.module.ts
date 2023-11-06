@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { GrniRoutingModule } from './grni-routing.module';
 import { GrniComponent } from './components/grni.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -11,7 +13,10 @@ import { GrniComponent } from './components/grni.component';
   ],
   imports: [
     CommonModule,
-    GrniRoutingModule
+    GrniRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class GrniModule { }

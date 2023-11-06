@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { 
-  NgbTooltipModule,NgbDropdownModule 
+  NgbTooltipModule,NgbDropdownModule, NgbPaginationModule 
 } from '@ng-bootstrap/ng-bootstrap';
 
 const UI_WIDGETSb = [
   NgbTooltipModule,
-  NgbDropdownModule 
+  NgbDropdownModule,
+  NgbPaginationModule
 ]
 
 @NgModule({

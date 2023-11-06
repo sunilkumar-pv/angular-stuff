@@ -3,6 +3,8 @@ import { NotificationService } from 'src/app/shared/notification.service';
 import { ModalDismissReasons,  NgbModal, NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { LocaldbserverService } from '../services/localdbserver.service';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-home',
@@ -20,7 +22,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   searchText: any;
   selectedCheckboxes: string = "";
   selectAllChecked: boolean = false; // Track the state of the "Select All" checkbox
-
+  page = 4;
 
   constructor(public toastService: NotificationService, private fb: FormBuilder,
     private localDbService: LocaldbserverService,
