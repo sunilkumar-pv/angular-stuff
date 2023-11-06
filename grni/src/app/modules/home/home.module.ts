@@ -6,18 +6,25 @@ import { HomeComponent } from './components/home.component';
 import { CoreModule } from 'src/app/core/core.module';
 import { LocaldbserverService } from './services/localdbserver.service';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PaginationComponent } from './pagination/pagination.component';
+import { CheckboxFilterPipe } from './pipes/checkbox-filter.pipe';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
+    PaginationComponent,
+    CheckboxFilterPipe,
    
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
     CoreModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ LocaldbserverService ]
 })

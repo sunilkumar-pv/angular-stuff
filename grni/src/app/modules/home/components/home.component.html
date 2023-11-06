@@ -1,12 +1,69 @@
 <p>home works!</p>
 <hr>
-<app-loader></app-loader>
+<!-- <app-loader></app-loader>
 
 <button type="button" class="btn btn-outline-secondary me-2" placement="top" ngbTooltip="Tooltip on top">
 	Tooltip on top
 </button>
-<br> <hr>
+<br> <hr> -->
+
+<form [formGroup]="grniDataMainForm" (ngSubmit)="submitMainForm()"> 
+<div class="row">
+	<div class="col-3">
+		<label for="ouNames">ouNames</label>
+		<div class="input-group">
+			<input type="text" class="form-control" formControlName="ouSearch" id="ouNames" placeholder="Search OU Names" #val>
+			<span class="input-group-text" (click)="open(content)">
+				<button type="button" (click)="getOuListFromApi(val)">
+					<i class="bi bi-search"></i>
+				</button>
+			</span> 
+		  </div>
+	</div>
+</div>
+<br> <br>
+<button type="submit">Submit Form</button>
+</form>
+<hr>
+
+<p>Selected Checkboxes: {{ selectedCheckboxes }}</p>
+  
+<form>
+	<div>
+		<input type="text" [(ngModel)]="searchText"
+		 [ngModelOptions]="{standalone: true}" placeholder="Search"> 
+	</div> 
+	<div>
+		<input type="checkbox" id="selectAll" [(ngModel)]="selectAllChecked" [ngModelOptions]="{standalone: true}" (change)="toggleSelectAll($event)">
+		<label for="selectAll">Select All</label>
+	  </div>
+	<div *ngFor="let item of jsonData | checkboxFilter: searchText  ">
+	  <input type="checkbox" [id]="'checkbox_' + item.id" [value]="item.id" name="checkboxName" (change)="toggleCheckbox(item.id)">
+	  <label [for]="'checkbox_' + item.id">{{ item.name }}</label>
+	  <br>  
+	</div> 
+</form>
+
  
+
+<!-- <input type="text" [(ngModel)]="searchText" placeholder="Search">
+<ul>
+  <li *ngFor="let item of jsonData | checkboxFilter: searchText">
+    <label>
+      <input type="checkbox" [id]="item.id" [name]="item.id" [value]="item.name">
+      {{ item.name }}
+    </label>
+  </li>
+</ul>
+<div *ngIf="jsonData | checkboxFilter: searchText as filteredData; else notFound">
+  <ng-container *ngFor="let item of filteredData">
+    <div *ngIf="item.id === 'not-found'">Search not found</div>
+  </ng-container>
+</div>
+<ng-template #notFound> </ng-template>
+  -->
+
+ <hr>
 <ng-template #content let-modal>
 	<div class="modal-header">
 		<h4 class="modal-title" id="modal-basic-title">Add Title</h4>
@@ -14,11 +71,13 @@
 	</div>
 	<div class="modal-body">
 	   <p>Some text here...</p>
-	</div>
+ 
+	</div><!--  -->
 	<div class="modal-footer">
 		<button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
 	</div>
 </ng-template>
+<hr>
 
-<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
+<!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
 
