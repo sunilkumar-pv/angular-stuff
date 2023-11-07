@@ -16,8 +16,7 @@ export class CheckboxFilterPipe implements PipeTransform {
     });
 
     if (filteredItems.length === 0) {
-      // return [{ id: 'not-found', name: 'Search not found' }];
-      return []
+      return [{ id: 'not-found', name: 'Search not found' }]; 
     }
 
     return filteredItems;
